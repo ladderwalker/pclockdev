@@ -1,19 +1,24 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <unistd.h>
 
-#include "rawdraw_sf.h"
+#include "files.h"
 #include "data.h"
 #include "ui.h"
 
-int main() {
-    data_init();
-    ui_init();
+int main( int argc, char **argv ) {
+	files_init(;)
+	data_init();
+	ui_init();
 
-    while(1){
-        data_update();
-        ui_draw();
-    }
-    ui_cleanup();
-    return EXIT_SUCCESS;
+	while(1)
+	{
+		data_update();
+		ui_show();
+		usleep(REFRESH_DELAY);
+	}
+
+	ui_cleanup();
+	files_cleanup;
+	return EXIT_SUCCESS;
+
 }

@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-lX11 -lpthread -lXinerama -lXext -lGL -g -lm -ldl -Wall
-OBJS=main.o data.o ui.o
+OBJS=main.o data.o ui.o files.o
 
 all: main
 
