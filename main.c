@@ -1,3 +1,13 @@
+/********************************************************************
+title: PunchClock
+file: main.c
+description:the main file of the entire program, 
+author: James Krause
+todo: 
+
+********************************************************************/
+
+
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -6,7 +16,7 @@
 #include "ui.h"
 
 int main( int argc, char **argv ) {
-	files_init(;)
+	files_init();
 	data_init();
 	ui_init();
 
@@ -18,7 +28,7 @@ int main( int argc, char **argv ) {
 	}
 
 	ui_cleanup();
-	files_cleanup;
+	
 	return EXIT_SUCCESS;
 
 }

@@ -1,3 +1,12 @@
+/********************************************************************
+title: PunchClock
+file: files.c
+description:
+author: James Krause
+todo: implement  files_update
+
+********************************************************************/
+
 #include <stdio.h>
 #include "files.h"
 #include "data.h"
@@ -10,6 +19,7 @@ void statusfile_init() {
     while(fread(&current, sizeof(status), 1, statusfile)) {
         printf("%d/n", current.currentday);
     }
+    fclose(statusfile);
 }
 
 void jobfile_init() {
@@ -24,14 +34,31 @@ void jobfile_init() {
     fclose(jobfile);
 }
 
-void txtfile_init(){
-
+void statusfile_update() {
+    statusfile = fopen("status.dat", "w");
+    fwrite(&current, sizeof(status), 1, statusfile);
+    fclose(statusfile);
 }
+
+void jobfile_update() {
+    jobfile = fopen("status.dat", "w");
+    fwrite(&jobs, sizeof(jobs), 1, jobfile);
+    fclose(jobfile);
+
+void txtfile_update( const char * timestrng ) {
+    txtfile = fopen("timesheet.txt", "a");
+    fprintf(txtfile, "%s\n", timestrng);
+    fclose(txtfile);
+}
+
 
 void files_init() {
     statusfile_init();
     jobfile_init();
-    txtfile_init();
+
 }
-void files_update();
-void files_cleanup();
+void files_update( const char * timestrng ){
+   statusfile_update();
+   jobfile_update();
+   txtfile_update( timestrng );
+}

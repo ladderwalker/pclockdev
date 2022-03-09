@@ -9,7 +9,7 @@ FILE *jobfile,
 
 void files_init();
 void files_update();
-void files_cleanup();
+
 
 
 #endif
